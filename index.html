@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form>
+    <p>
+      <label for="tvshowTitle">TV Show Title</label>
+      <input type="text" name="tvshowTitle" id="tvshowTitle">
+    </p>
+    <p>
+      <label for="Genre">Genre</label>
+      <input type="Genre" name="Genre" id="Genre">
+    </p>
+    <p>
+      <label for="seasons">Number of Seasons</label>
+      <input type="season" name="season" id="season">
+    </p>
+    <p>
+      <label for="actors">Star Actors</label>
+      <input type="actors" name="actors" id="actors">
+    </p>
+    <p>
+      <label for="network">Network</label>
+      <input type="network" name="netwrok" id="network">
+    </p>
+    <button id="Save">Save</button>
+  </form>
+  <div id="users"></div>
+  <script>
+
+    document.getElementById('Save').addEventListener('click', event => {
+      event.preventDefault()
+
+      console.log(document.getElementById('tvshowTitle').value)
+      console.log(document.getElementById('Genre').value)
+
+      let userElem = document.createElement('div')
+      userElem.innerHTML = `
+          <h3><label for="tvshowTitle">TV Show Title:  </label>${document.getElementById('tvshowTitle').value}</h3>
+          <h4><label for="Genre">Genre:   </label>${document.getElementById('Genre').value}</h4>
+          <h4><label for="season">Number of Seasons:   </label>${document.getElementById('season').value}</h4>
+          <h4><label for="actors">Star Actors:   </label>${document.getElementById('actors').value}</h4>
+          <h4><label for="network">Network:   </label>${document.getElementById('network').value}</h4>
+          <hr>
+        `
+      document.getElementById('users').append(userElem)
+
+      document.getElementById('tvshowTitle').value = ''
+      document.getElementById('Genre').value = ''
+      document.getElementById('season').value = ''
+      document.getElementById('actors').value = ''
+      document.getElementById('network').value = ''
+      
+
+      // document.getElementById('user').innerHTML = `
+      //   <h1>${document.getElementById('tvshowTitle').value}</h1>
+      //   <h2>${document.getElementById('Genre').value}</h2>
+      // `
+    })
+
+  </script>
+</body>
+</html>
